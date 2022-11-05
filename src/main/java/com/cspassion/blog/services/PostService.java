@@ -7,12 +7,12 @@ import com.cspassion.blog.payloads.PostDto;
 
 public interface PostService {
 
-	Post createPost(PostDto postDto);
-	Post updatePost(PostDto postDto,Integer postId);
+	PostDto createPost(PostDto postDto,Integer userId,Integer categoryId);
+	PostDto updatePost(PostDto postDto,Integer postId);
 	void deletePost(Integer postId);
 	List<Post> getAllPost();
 	Post getPostById(Integer postId);
-	List<Post> getPostsByCategory(Integer postId);
-	List<Post> getPostsByUser(Integer postId);
+	List<PostDto> getPostsByCategory(Integer categoryId);
+	List<PostDto> getPostsByUser(Integer categoryId);
 	List<Post> searchPosts(String keyword);
 }

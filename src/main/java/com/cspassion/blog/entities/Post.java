@@ -11,8 +11,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name="posts")
+@Getter
+@Setter
+@NoArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 public class Post {
 
 	@Id
@@ -23,7 +35,7 @@ public class Post {
 	
 	@Column(length = 10000)
 	private String content;
-	
+
 	private String imageName;
 	
 	private Date createdDate;
@@ -33,5 +45,4 @@ public class Post {
 	
 	@ManyToOne
 	private User user;
-	
 }
